@@ -1,0 +1,20 @@
+{
+  "orgName": "jest",
+  "edition": "Developer",
+  "hasSampleData": true,
+  "features": ["Communities"],
+  "settings": {
+      "chatterSettings": {
+          "enableChatter": true
+      },
+      "communitiesSettings": {
+          "enableNetworksEnabled": true
+      },
+      "lightningExperienceSettings": {
+          "enableS1DesktopEnabled": true
+      },
+      "mobileSettings": {
+          "enableS1EncryptedStoragePref2": false
+      }
+  }
+}
