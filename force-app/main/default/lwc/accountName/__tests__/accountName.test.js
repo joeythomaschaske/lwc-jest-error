@@ -36,4 +36,22 @@ describe('c-account-name', () => {
         expect(name).toBeTruthy();
         expect(name.textContent).toEqual('Yo, Account Name');
     });
+
+    it('shows an alert when no name is entered and submitted', async () => {
+        const element = createElement('c-account-name', {
+            is: AccountName
+        });
+        document.body.appendChild(element);
+        getRecordWireAdapter.emit(mockGetRecord);
+        window.alert = jest.fn();
+
+        await Promise.resolve();
+
+        const save = element.shadowRoot.querySelector('lightning-button');
+        save.click();
+
+        await Promise.resolve();
+
+        expect(window.alert).toHaveBeenCalled();
+    });
 });

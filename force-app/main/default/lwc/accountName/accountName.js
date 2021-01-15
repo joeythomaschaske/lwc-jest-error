@@ -12,7 +12,10 @@ export default class AccountName extends ValidationMixin(LightningElement) {
     @wire(getRecord, { recordId: '$recordId', fields: [ACCOUNT_NAME] })
     wiredAccount
 
-    [ValidationMixin.Selectors] = ['lightning-input'];
+    constructor() {
+        super();
+        [ValidationMixin.Selectors] = ['lightning-input'];
+    }
 
     get name() {
         return getFieldValue(this.wiredAccount.data, ACCOUNT_NAME);
@@ -20,8 +23,10 @@ export default class AccountName extends ValidationMixin(LightningElement) {
 
     save() {
         if (!this.checkValidity()) {
+            debugger;
             alert('Please enter a name');
         } else {
+            debugger;
             updateRecord({ fields: { Id: this.recordId, Name: this.newName }});
         }
     }
